@@ -50,5 +50,8 @@ extra:
 #   - pymdownx.mark
 #   - attr_list
 
+markdown_extensions:
+  - tables
+
 copyright: |
   &copy; 2023 <a href="https://github.com/its-me-abhishek/ccsync"  target="_blank" rel="noopener">CCSync</a>
