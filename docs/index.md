@@ -34,6 +34,32 @@ The diagram below is a representation of how various components are connected to
 
 ## Testing
 
+- For testing backend, first navigate to the backend directory
+
+```
+cd backend
+```
+
+then run the tests
+
+```
+go test <package_name>
+```
+
+where, `package_name` is the test suite you want to run.
+
+- Similarly, for testing frontend, first navigate to the frontend directory
+
+```
+cd frontend
+```
+
+then run the tests
+
+```
+npm test
+```
+
 ---
 
 ## Google OAuth Keys
@@ -67,11 +93,11 @@ Before starting anything, Go to [Google cloud credential page](https://console.c
 
 Note: This step is necessary only for the frontend setup, and can be skipped if you plan to use only the backend API with the Taskwarrior Flutter App
 
-1. Create a new project and then setup a Firestore database.
+1.  Create a new project and then setup a Firestore database.
 
-2. Add a collection of the name tasks
+2.  Add a collection of the name tasks
 
-3. The following fields must be there in the data model of the collection:
+3.  The following fields must be there in the data model of the collection:
 
         description (string)
         due (string)
@@ -87,7 +113,7 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         urgency (number)
         uuid (string)
 
-4. Add web support for you database and download the config file provided by Google, it would have this format:
+4.  Add web support for you database and download the config file provided by Google, it would have this format:
 
         import { initializeApp } from "firebase/app";
         const firebaseConfig = {
@@ -101,4 +127,4 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         };
         export const app = initializeApp(firebaseConfig);
 
-5. Download it, and store it at frontend/src/lib/ by the name firestore.js
+5.  Download it, and store it at frontend/src/lib/ by the name firestore.js
