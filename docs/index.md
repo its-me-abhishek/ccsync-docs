@@ -18,7 +18,7 @@ The diagram below is a representation of how various components are connected to
 
 ---
 
-#### Prerequisites
+### Prerequisites
 
 - Docker
 
@@ -26,39 +26,87 @@ The diagram below is a representation of how various components are connected to
 
 - Firestore Configuration
 
-#### Setup
+### Steps to setup the frontend
 
-#### Troubleshooting
+1.  Navigate to the frontend directory and run the command:
+
+        npm install
+
+2.  Create a `.env` file in the same directory.
+
+3.  If you want to use docker, set the environment variables in `.env` as:
+
+           VITE_BACKEND_URL="http://localhost:8000/"
+           VITE_FRONTEND_URL="http://localhost:80"
+           VITE_CONTAINER_ORIGIN="http://localhost:8080/"
+
+4.  Else, set the environment variables in `.env` as:
+
+           VITE_BACKEND_URL="http://localhost:8000/"
+           VITE_FRONTEND_URL="http://localhost:5173"
+           VITE_CONTAINER_ORIGIN="http://localhost:8080/"
+
+5.  Run the frontend container only:
+
+        docker-compose build frontend
+        docker-compose up
+
+### Steps to setup the backend
+
+1.  Navigate to the backend directory and run the commands:
+
+        go mod download
+        go mod tidy
+
+2.  Create a `.env` file in the same directory.
+
+3.  Go to [Google cloud credential page](https://console.cloud.google.com/apis/credentials) for generating client id and secret.
+
+4.  If you want to use docker, set the environment variables in `.env` as:
+
+        CLIENT_ID="client_ID"
+        CLIENT_SEC="client_SECRET"
+        REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
+        SESSION_KEY=""
+        FRONTEND_ORIGIN_DEV="http://localhost"
+        CONTAINER_ORIGIN="http://YOUR_CONTAINER_NAME:8080/"
+
+5.  Else, set the environment variables in `.env` as:
+
+        CLIENT_ID="client_ID"
+        CLIENT_SEC="client_SECRET"
+        REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
+        SESSION_KEY=""
+        FRONTEND_ORIGIN_DEV="http://localhost:5173"
+        CONTAINER_ORIGIN="http://localhost:8080/"
+
+6.  Run the backend container only:
+
+        docker-compose build backend
+        docker-compose up
+
+**Note:** If you plan to run the backend without Docker, run it as a `root` user preferably on `WSL` or any Linux Distro with a user that has elevated permissions to modify files and directories.
+
+### Troubleshooting
+
+The sync might break most of the times due to wrong `.env` variables. Please ensure that your docker containers are
+visible and accessible, using `ping <container_address>` commands.
 
 ---
 
 ## Testing
 
-- For testing backend, first navigate to the backend directory
+- For testing backend, first navigate to the backend directory, and then run the tests
 
-```
-cd backend
-```
+        cd backend
+        go test <package_name>
 
-then run the tests
+Here, `package_name` is the test suite you want to run.
 
-```
-go test <package_name>
-```
+- Similarly, for testing frontend, first navigate to the frontend directory, and then run the tests
 
-where, `package_name` is the test suite you want to run.
-
-- Similarly, for testing frontend, first navigate to the frontend directory
-
-```
-cd frontend
-```
-
-then run the tests
-
-```
-npm test
-```
+        cd frontend
+        npm test
 
 ---
 
@@ -127,4 +175,4 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         };
         export const app = initializeApp(firebaseConfig);
 
-5.  Download it, and store it at frontend/src/lib/ by the name firestore.js
+5.  Download it, and store it at `frontend/src/lib/` by the name `firestore.js`
