@@ -36,15 +36,15 @@ The diagram below is a representation of how various components are connected to
 
 3.  If you want to use docker, set the environment variables in `.env` as:
 
-           VITE_BACKEND_URL="http://localhost:8000/"
-           VITE_FRONTEND_URL="http://localhost:80"
-           VITE_CONTAINER_ORIGIN="http://localhost:8080/"
+        VITE_BACKEND_URL="http://localhost:8000/"
+        VITE_FRONTEND_URL="http://localhost:80"
+        VITE_CONTAINER_ORIGIN="http://localhost:8080/"
 
 4.  Else, set the environment variables in `.env` as:
 
-           VITE_BACKEND_URL="http://localhost:8000/"
-           VITE_FRONTEND_URL="http://localhost:5173"
-           VITE_CONTAINER_ORIGIN="http://localhost:8080/"
+        VITE_BACKEND_URL="http://localhost:8000/"
+        VITE_FRONTEND_URL="http://localhost:5173"
+        VITE_CONTAINER_ORIGIN="http://localhost:8080/"
 
 5.  Run the frontend container only:
 
