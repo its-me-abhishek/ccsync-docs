@@ -67,7 +67,7 @@ The diagram below is a representation of how various components are connected to
         CLIENT_ID="client_ID"
         CLIENT_SEC="client_SECRET"
         REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
-        SESSION_KEY=""
+        SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
         FRONTEND_ORIGIN_DEV="http://localhost"
         CONTAINER_ORIGIN="http://YOUR_CONTAINER_NAME:8080/"
 
@@ -76,7 +76,7 @@ The diagram below is a representation of how various components are connected to
         CLIENT_ID="client_ID"
         CLIENT_SEC="client_SECRET"
         REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
-        SESSION_KEY=""
+        SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
         FRONTEND_ORIGIN_DEV="http://localhost:5173"
         CONTAINER_ORIGIN="http://localhost:8080/"
 
@@ -86,6 +86,32 @@ The diagram below is a representation of how various components are connected to
         docker-compose up
 
 **Note:** If you plan to run the backend without Docker, run it as a `root` user preferably on `WSL` or any Linux Distro with a user that has elevated permissions to modify files and directories.
+
+**Note:** Setup the sync server using the official documentation provided [here](https://github.com/GothenburgBitFactory/taskchampion-sync-server).
+
+### Steps to setup the Taskwarrior Flutter app with CCSync
+
+1. For development/personal purposes, in order to use CCSync with Taskwarrior Flutter app, one needs to setup only
+the backend and the sync server. The frontend setup is optional.
+
+2. Open the `api_service.dart` file.
+
+3. For baseUrl, replace `http://YOUR_IP:8000` with the deployed API endpoint.
+
+4. For origin, replace `http://localhost:8080` with the deployed sync server endpoint.
+
+5. Set `sync.server.origin` in your Taskwarrior configuration to the deployed sync server URL.
+
+6. Here's how your api_service.dart should look after these changes:
+
+        class ApiService {
+        // Use deployed values for baseUrl and origin
+                String baseUrl = 'http://deployed-api-endpoint.com'; // replace with actual deployed API endpoint
+                String origin = 'http://deployed-sync-server-endpoint.com'; // replace with actual deployed sync server endpoint
+        // Other ApiService code...
+        } 
+        
+7. Run the app.
 
 ### Troubleshooting
 
@@ -114,20 +140,20 @@ Here, `package_name` is the test suite you want to run.
 
 Before starting anything, Go to [Google cloud credential page](https://console.cloud.google.com/apis/credentials) for generating client id and secret. Follow these steps:
 
-1.  Go to Google’s developer console.
+1.  Go to Google's developer console.
 
 2.  Create a new project.
 
-3.  From within your project, create a new “Client ID” by going to “APIs & Auth” > “Credentials” and clicking on the “Create New Client ID” button.
+3.  From within your project, create a new "Client ID" by going to "APIs & Auth" > "Credentials" and clicking on the "Create New Client ID" button.
 
-4.  Select “Web Application”
+4.  Select "Web Application"
 
-5.  Enter the following for ‘Authorized Javascript Origins’:
+5.  Enter the following for 'Authorized Javascript Origins':
 
         http://127.0.0.1
         http://localhost
 
-6.  Enter the following for ‘Authorized Redirect URI’:
+6.  Enter the following for 'Authorized Redirect URI':
 
         http://127.0.0.1:8000/callback/
 
