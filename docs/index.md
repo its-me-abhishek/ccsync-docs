@@ -91,27 +91,27 @@ The diagram below is a representation of how various components are connected to
 
 ### Steps to setup the Taskwarrior Flutter app with CCSync
 
-1. For development/personal purposes, in order to use CCSync with Taskwarrior Flutter app, one needs to setup only
-the backend and the sync server. The frontend setup is optional.
+1.  For development/personal purposes, in order to use CCSync with Taskwarrior Flutter app, one needs to setup only
+    the backend and the sync server. The frontend setup is optional.
 
-2. Open the `api_service.dart` file.
+2.  Open the `api_service.dart` file.
 
-3. For baseUrl, replace `http://YOUR_IP:8000` with the deployed API endpoint.
+3.  For baseUrl, replace `http://YOUR_IP:8000` with the deployed API endpoint.
 
-4. For origin, replace `http://localhost:8080` with the deployed sync server endpoint.
+4.  For origin, replace `http://localhost:8080` with the deployed sync server endpoint.
 
-5. Set `sync.server.origin` in your Taskwarrior configuration to the deployed sync server URL.
+5.  Set `sync.server.origin` in your Taskwarrior configuration to the deployed sync server URL.
 
-6. Here's how your api_service.dart should look after these changes:
+6.  Here's how your api_service.dart should look after these changes:
 
         class ApiService {
         // Use deployed values for baseUrl and origin
                 String baseUrl = 'http://deployed-api-endpoint.com'; // replace with actual deployed API endpoint
                 String origin = 'http://deployed-sync-server-endpoint.com'; // replace with actual deployed sync server endpoint
         // Other ApiService code...
-        } 
-        
-7. Run the app.
+        }
+
+7.  Run the app.
 
 ### Troubleshooting
 
@@ -133,6 +133,8 @@ Here, `package_name` is the test suite you want to run.
 
         cd frontend
         npm test
+
+- `Note`: In order to setup / run tests for pages that have any URLs, for example, the `HomePage.tsx`, toggle the `isTesting` to `true` in `frontend/src/components/utils/URLs.ts`
 
 ---
 
