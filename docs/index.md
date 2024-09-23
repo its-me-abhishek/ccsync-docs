@@ -36,15 +36,15 @@ The diagram below is a representation of how various components are connected to
 
 3.  If you want to use docker, set the environment variables in `.env` as:
 
-        VITE_BACKEND_URL="http://localhost:8000/"
-        VITE_FRONTEND_URL="http://localhost:80"
-        VITE_CONTAINER_ORIGIN="http://localhost:8080/"
+        VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the frontend interacts with
+        VITE_FRONTEND_URL="http://localhost:80" # the url of our frontend, so as to avoid CORS based errors
+        VITE_CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
 
 4.  Else, set the environment variables in `.env` as:
 
-        VITE_BACKEND_URL="http://localhost:8000/"
-        VITE_FRONTEND_URL="http://localhost:5173"
-        VITE_CONTAINER_ORIGIN="http://localhost:8080/"
+        VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the frontend interacts with
+        VITE_FRONTEND_URL="http://localhost:5173" # the url of our frontend, so as to avoid CORS based errors
+        VITE_CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
 
 5.  Run the frontend container only:
 
@@ -66,10 +66,10 @@ The diagram below is a representation of how various components are connected to
 
         CLIENT_ID="client_ID"
         CLIENT_SEC="client_SECRET"
-        REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
+        REDIRECT_URL_DEV="http://localhost:8000/auth/callback" 
         SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
-        FRONTEND_ORIGIN_DEV="http://localhost"
-        CONTAINER_ORIGIN="http://YOUR_CONTAINER_NAME:8080/"
+        FRONTEND_ORIGIN_DEV="http://localhost" # the url of the frontend, so as to avoid CORS errors
+        CONTAINER_ORIGIN="http://YOUR_CONTAINER_NAME:8080/" # url of the deployed taskchampion-sync-server container
 
 5.  Else, set the environment variables in `.env` as:
 
@@ -77,8 +77,8 @@ The diagram below is a representation of how various components are connected to
         CLIENT_SEC="client_SECRET"
         REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
         SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
-        FRONTEND_ORIGIN_DEV="http://localhost:5173"
-        CONTAINER_ORIGIN="http://localhost:8080/"
+        FRONTEND_ORIGIN_DEV="http://localhost:5173" # the url of the frontend, so as to avoid CORS errors
+        CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
 
 6.  Run the backend container only:
 
@@ -107,7 +107,7 @@ The diagram below is a representation of how various components are connected to
         class ApiService {
         // Use deployed values for baseUrl and origin
                 String baseUrl = 'http://deployed-api-endpoint.com'; // replace with actual deployed API endpoint
-                String origin = 'http://deployed-sync-server-endpoint.com'; // replace with actual deployed sync server endpoint
+                String origin = 'http://deployed-sync-server-endpoint.com'; // replace with actual deployed sync server endpoint, although, for now, it is just a placeholder until next release or update
         // Other ApiService code...
         }
 
@@ -203,4 +203,4 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         };
         export const app = initializeApp(firebaseConfig);
 
-5.  Download it, and store it at `frontend/src/lib/` by the name `firestore.js`
+5.  Download it, and store it at `frontend/src/lib/` by the name `firestore.ts`
