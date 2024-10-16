@@ -203,4 +203,16 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         };
         export const app = initializeApp(firebaseConfig);
 
-5.  Download it, and store it at `frontend/src/lib/` by the name `firestore.ts`
+5. Make sure to update the Firestore rules to the given values, so as to become able to access them over the web frontend:
+
+        rules_version = '2';
+        service cloud.firestore {
+        match /databases/{database}/documents {
+        match /{document=**} {
+        allow read, write: if true;
+            }
+          }
+        }
+
+
+7.  Download it, and store it at `frontend/src/lib/` by the name `firestore.ts`
