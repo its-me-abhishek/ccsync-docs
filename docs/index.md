@@ -202,8 +202,10 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         measurementId: ""
         };
         export const app = initializeApp(firebaseConfig);
+6.  Download it, and store it at `frontend/src/lib/` by the name `firebase.ts`
+    
 
-5. Make sure to update the Firestore rules to the given values, so as to become able to access them over the web frontend:
+7. Make sure to update the Firestore rules to the given values, so as to become able to access them over the web frontend:
 
         rules_version = '2';
         service cloud.firestore {
@@ -215,4 +217,3 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         }
 
 
-7.  Download it, and store it at `frontend/src/lib/` by the name `firestore.ts`
