@@ -26,7 +26,7 @@
     "email": "email",
     "encryptionSecret": "encryptionSecret",
     "UUID": "clientID",
-    "taskuuid": "any task uuid",
+    "taskID": "any task id",
     "description": "new description for the task"
 }
 ```
