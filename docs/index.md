@@ -36,13 +36,13 @@ The diagram below is a representation of how various components are connected to
 
 3.  If you want to use docker, set the environment variables in `.env` as:
 
-        VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the web frontend interacts with
+        VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the app or the web frontend interacts with
         VITE_FRONTEND_URL="http://localhost:80" # the url of our web frontend, so as to avoid CORS based errors
         VITE_CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
 
 4.  Else, set the environment variables in `.env` as:
 
-        VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the web frontend interacts with
+        VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the app or the web frontend interacts with
         VITE_FRONTEND_URL="http://localhost:5173" # the url of our web frontend, so as to avoid CORS based errors
         VITE_CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
 
