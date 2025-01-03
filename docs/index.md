@@ -87,7 +87,7 @@ The diagram below is a representation of how various components are connected to
 
 **Note:** If you plan to run the backend without Docker, run it as a `root` user preferably on `WSL` or any Linux Distro with a user that has elevated permissions to modify files and directories.
 
-**Note:** Setup the sync server using the official documentation provided [here](https://github.com/GothenburgBitFactory/taskchampion-sync-server).
+**Note:** The Taskchampion sync server is currently being pulled from the repository [here](https://github.com/GothenburgBitFactory/taskchampion-sync-server).
 
 ### Steps to setup the Taskwarrior Flutter app with CCSync
 
