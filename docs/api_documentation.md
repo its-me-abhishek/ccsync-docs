@@ -10,6 +10,7 @@
 | `POST` | `/add-task`      | Add a task                      |
 | `POST` | `/complete-task` | Mark a task as completed        |
 | `POST` | `/delete-task`   | Mark a task as deleted          |
+| `GET`  | `/ws`            | Fetch Job Status via Websockets |
 
 ## Sample payloads for requests
 
