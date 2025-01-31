@@ -64,8 +64,8 @@ The diagram below is a representation of how various components are connected to
 
 4.  If you want to use docker, set the environment variables in `.env` as:
 
-        CLIENT_ID="client_ID"
-        CLIENT_SEC="client_SECRET"
+        CLIENT_ID="client_ID" # Google Auth Secret
+        CLIENT_SEC="client_SECRET" # Google Auth Secret
         REDIRECT_URL_DEV="http://localhost:8000/auth/callback" 
         SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
         FRONTEND_ORIGIN_DEV="http://localhost" # the url of the web frontend, so as to avoid CORS errors
@@ -73,8 +73,8 @@ The diagram below is a representation of how various components are connected to
 
 5.  Else, set the environment variables in `.env` as:
 
-        CLIENT_ID="client_ID"
-        CLIENT_SEC="client_SECRET"
+        CLIENT_ID="client_ID" # Google Auth Secret
+        CLIENT_SEC="client_SECRET" # Google Auth Secret
         REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
         SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
         FRONTEND_ORIGIN_DEV="http://localhost:5173" # the url of the web frontend, so as to avoid CORS errors
@@ -96,7 +96,7 @@ The diagram below is a representation of how various components are connected to
 
 2.  Open the `api_service.dart` file.
 
-3.  For baseUrl, replace `http://YOUR_IP:8000` with the deployed API endpoint.
+3.  For baseUrl, replace `http://YOUR_IP:8000` with the deployed API endpoint. YOUR_IP refers to the IP address of the terminal or Docker container that is hosting the backend currently.
 
 4.  For origin, replace `http://localhost:8080` with the deployed sync server endpoint.
 
@@ -204,7 +204,6 @@ Note: This step is necessary only for the frontend setup, and can be skipped if 
         export const app = initializeApp(firebaseConfig);
 6.  Download it, and store it at `frontend/src/lib/` by the name `firebase.ts`
     
-
 7. Make sure to update the Firestore rules to the given values, so as to become able to access them over the web frontend:
 
         rules_version = '2';
