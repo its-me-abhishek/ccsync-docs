@@ -1,0 +1,885 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/its-me-abhishek/ccsync/">
+      
+      
+      
+        <link rel="next" href="about/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>CCSync Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="cyan">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developing-for-ccsync" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="CCSync Docs" class="md-header__button md-logo" aria-label="CCSync Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CCSync Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developing for CCSync
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="cyan"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Developing for CCSync
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="api_documentation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Documentation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="patch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Patch Notes
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="CCSync Docs" class="md-nav__button md-logo" aria-label="CCSync Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CCSync Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Developing for CCSync
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Developing for CCSync
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#environment-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Environment Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-a-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up a Development Environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Setting up a Development Environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-to-setup-the-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to setup the frontend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-to-setup-the-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to setup the backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-to-setup-the-taskwarrior-flutter-app-with-ccsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Steps to setup the Taskwarrior Flutter app with CCSync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Troubleshooting
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Testing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-oauth-keys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google OAuth Keys
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#firestore-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Firestore configuration
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="api_documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="patch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patch Notes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="developing-for-ccsync">Developing for CCSync</h1>
+<p>This section gives a brief information about almost everything that you would need to setup CCSync for development, or deployment.</p>
+<p>If you still have any queries, contact us on <a href="https://github.com/its-me-abhishek/ccsync-docs">Github</a></p>
+<hr />
+<h2 id="environment-architecture">Environment Architecture</h2>
+<p>The diagram below is a representation of how various components are connected to enable sync on the CCSync website, and the <a href="https://github.com/CCExtractor/taskwarrior-flutter">Taskwarrior Flutter App</a></p>
+<p><img src="./images/architecture.jpg"></p>
+<hr />
+<h2 id="setting-up-a-development-environment">Setting up a Development Environment</h2>
+<hr />
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>
+<p>Docker</p>
+</li>
+<li>
+<p>Google OAuth Keys</p>
+</li>
+<li>
+<p>Firestore Configuration</p>
+</li>
+</ul>
+<h3 id="steps-to-setup-the-frontend">Steps to setup the frontend</h3>
+<ol>
+<li>
+<p>Navigate to the frontend directory and run the command:</p>
+<pre><code>npm install
+</code></pre>
+</li>
+<li>
+<p>Create a <code>.env</code> file in the same directory.</p>
+</li>
+<li>
+<p>If you want to use docker, set the environment variables in <code>.env</code> as:</p>
+<pre><code>VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the app or the web frontend interacts with
+VITE_FRONTEND_URL="http://localhost:80" # the url of our web frontend, so as to avoid CORS based errors
+VITE_CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
+</code></pre>
+</li>
+<li>
+<p>Else, set the environment variables in <code>.env</code> as:</p>
+<pre><code>VITE_BACKEND_URL="http://localhost:8000/" # this is the backend to which the app or the web frontend interacts with
+VITE_FRONTEND_URL="http://localhost:5173" # the url of our web frontend, so as to avoid CORS based errors
+VITE_CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
+</code></pre>
+</li>
+<li>
+<p>Run the frontend container only:</p>
+<pre><code>docker-compose build frontend
+docker-compose up
+</code></pre>
+</li>
+</ol>
+<h3 id="steps-to-setup-the-backend">Steps to setup the backend</h3>
+<ol>
+<li>
+<p>Navigate to the backend directory and run the commands:</p>
+<pre><code>go mod download
+go mod tidy
+</code></pre>
+</li>
+<li>
+<p>Create a <code>.env</code> file in the same directory.</p>
+</li>
+<li>
+<p>Go to <a href="https://console.cloud.google.com/apis/credentials">Google cloud credential page</a> for generating client id and secret.</p>
+</li>
+<li>
+<p>If you want to use docker, set the environment variables in <code>.env</code> as:</p>
+<pre><code>CLIENT_ID="client_ID" # Google Auth Secret
+CLIENT_SEC="client_SECRET" # Google Auth Secret
+REDIRECT_URL_DEV="http://localhost:8000/auth/callback" 
+SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
+FRONTEND_ORIGIN_DEV="http://localhost" # the url of the web frontend, so as to avoid CORS errors
+CONTAINER_ORIGIN="http://YOUR_CONTAINER_NAME:8080/" # url of the deployed taskchampion-sync-server container
+</code></pre>
+</li>
+<li>
+<p>Else, set the environment variables in <code>.env</code> as:</p>
+<pre><code>CLIENT_ID="client_ID" # Google Auth Secret
+CLIENT_SEC="client_SECRET" # Google Auth Secret
+REDIRECT_URL_DEV="http://localhost:8000/auth/callback"
+SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
+FRONTEND_ORIGIN_DEV="http://localhost:5173" # the url of the web frontend, so as to avoid CORS errors
+CONTAINER_ORIGIN="http://localhost:8080/" # url of the deployed taskchampion-sync-server container
+</code></pre>
+</li>
+<li>
+<p>Run the backend container only:</p>
+<pre><code>docker-compose build backend
+docker-compose up
+</code></pre>
+</li>
+</ol>
+<p><strong>Note:</strong> If you plan to run the backend without Docker, run it as a <code>root</code> user preferably on <code>WSL</code> or any Linux Distro with a user that has elevated permissions to modify files and directories.</p>
+<p><strong>Note:</strong> The Taskchampion sync server is currently being pulled from the repository <a href="https://github.com/GothenburgBitFactory/taskchampion-sync-server">here</a>.</p>
+<h3 id="steps-to-setup-the-taskwarrior-flutter-app-with-ccsync">Steps to setup the Taskwarrior Flutter app with CCSync</h3>
+<ol>
+<li>
+<p>For development/personal purposes, in order to use CCSync with Taskwarrior Flutter app, one needs to setup only
+    the backend and the sync server. The frontend setup is optional.</p>
+</li>
+<li>
+<p>Open the <code>api_service.dart</code> file.</p>
+</li>
+<li>
+<p>For baseUrl, replace <code>http://YOUR_IP:8000</code> with the deployed API endpoint. YOUR_IP refers to the IP address of the terminal or Docker container that is hosting the backend currently.</p>
+</li>
+<li>
+<p>For origin, replace <code>http://localhost:8080</code> with the deployed sync server endpoint.</p>
+</li>
+<li>
+<p>Set <code>sync.server.origin</code> in your Taskwarrior configuration to the deployed sync server URL.</p>
+</li>
+<li>
+<p>Here's how your api_service.dart should look after these changes:</p>
+<pre><code>class ApiService {
+// Use deployed values for baseUrl and origin
+        String baseUrl = 'http://deployed-api-endpoint.com'; // replace with actual deployed API endpoint
+        String origin = 'http://deployed-sync-server-endpoint.com'; // replace with actual deployed sync server endpoint, although, for now, it is just a placeholder until next release or update
+// Other ApiService code...
+}
+</code></pre>
+</li>
+<li>
+<p>Run the app.</p>
+</li>
+</ol>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>The sync might break most of the times due to wrong <code>.env</code> variables. Please ensure that your docker containers are
+visible and accessible, using <code>ping &lt;container_address&gt;</code> commands.</p>
+<hr />
+<h2 id="testing">Testing</h2>
+<ul>
+<li>For testing backend, first navigate to the backend directory, and then run the tests<pre><code>cd backend
+go test &lt;package_name&gt;
+</code></pre>
+</li>
+</ul>
+<p>Here, <code>package_name</code> is the test suite you want to run.</p>
+<ul>
+<li>
+<p>Similarly, for testing frontend, first navigate to the frontend directory, and then run the tests</p>
+<pre><code>cd frontend
+npm test
+</code></pre>
+</li>
+<li>
+<p><code>Note</code>: In order to setup / run tests for pages that have any URLs, for example, the <code>HomePage.tsx</code>, toggle the <code>isTesting</code> to <code>true</code> in <code>frontend/src/components/utils/URLs.ts</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="google-oauth-keys">Google OAuth Keys</h2>
+<p>Before starting the frontend, Go to <a href="https://console.cloud.google.com/apis/credentials">Google cloud credential page</a> for generating client id and secret. Read <a href="https://developers.google.com/identity/protocols/oauth2">this guide for more information on these credentials and how these work</a>. Follow these steps:</p>
+<ol>
+<li>
+<p>Go to Google's developer console.</p>
+</li>
+<li>
+<p>Create a new project.</p>
+</li>
+<li>
+<p>From within your project, create a new "Client ID" by going to "APIs &amp; Auth" &gt; "Credentials" and clicking on the "Create New Client ID" button.</p>
+</li>
+<li>
+<p>Select "Web Application"</p>
+</li>
+<li>
+<p>Enter the following for 'Authorized Javascript Origins':</p>
+<pre><code>http://127.0.0.1
+http://localhost
+</code></pre>
+</li>
+<li>
+<p>Enter the following for 'Authorized Redirect URI':</p>
+<pre><code>http://127.0.0.1:8000/callback/
+</code></pre>
+</li>
+<li>
+<p>Save</p>
+</li>
+<li>
+<p>You will be presented with your newly generated credentials that are required for setting up the backend.</p>
+</li>
+</ol>
+<hr />
+<h2 id="firestore-configuration">Firestore configuration</h2>
+<p>Note: This step is necessary only for the frontend setup, and can be skipped if you plan to use only the backend API with the Taskwarrior Flutter App</p>
+<ol>
+<li>
+<p>Create a new project and then setup a Firestore database.</p>
+</li>
+<li>
+<p>Add a collection of the name tasks</p>
+</li>
+<li>
+<p>The following fields must be there in the data model of the collection:</p>
+<pre><code>description (string)
+due (string)
+email (string)
+end (string)
+entry (string)
+id (number)
+modified (string)
+priority (string)
+project (string)
+status (string)
+tags (array : string)
+urgency (number)
+uuid (string)
+</code></pre>
+</li>
+<li>
+<p>Add web support for you database and download the config file provided by Google, it would have this format:</p>
+<pre><code>import { initializeApp } from "firebase/app";
+const firebaseConfig = {
+apiKey: "",
+authDomain: "",
+projectId: "",
+storageBucket: "",
+messagingSenderId: "",
+appId: "",
+measurementId: ""
+};
+export const app = initializeApp(firebaseConfig);
+</code></pre>
+<ol>
+<li>Download it, and store it at <code>frontend/src/lib/</code> by the name <code>firebase.ts</code></li>
+</ol>
+</li>
+<li>
+<p>Make sure to update the Firestore rules to the given values, so as to become able to access them over the web frontend:</p>
+<pre><code>rules_version = '2';
+service cloud.firestore {
+match /databases/{database}/documents {
+match /{document=**} {
+allow read, write: if true;
+    }
+  }
+}
+</code></pre>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2025 <a href="https://github.com/its-me-abhishek/ccsync"  target="_blank" rel="noopener">CCSync</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/its-me-abhishek/ccsync" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
