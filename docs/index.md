@@ -140,7 +140,7 @@ Here, `package_name` is the test suite you want to run.
 
 ## Google OAuth Keys
 
-Before starting anything, Go to [Google cloud credential page](https://console.cloud.google.com/apis/credentials) for generating client id and secret. Follow these steps:
+Before starting the frontend, Go to [Google cloud credential page](https://console.cloud.google.com/apis/credentials) for generating client id and secret. Read [this guide for more information on these credentials and how these work](https://developers.google.com/identity/protocols/oauth2). Follow these steps:
 
 1.  Go to Google's developer console.
 
