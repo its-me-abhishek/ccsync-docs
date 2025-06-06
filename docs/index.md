@@ -24,8 +24,6 @@ The diagram below is a representation of how various components are connected to
 
 - Google OAuth Keys
 
-- Firestore Configuration
-
 ### Steps to setup the frontend
 
 1.  Navigate to the frontend directory and run the command:
@@ -164,55 +162,3 @@ Before starting the frontend, Go to [Google cloud credential page](https://conso
 8.  You will be presented with your newly generated credentials that are required for setting up the backend.
 
 ---
-
-## Firestore configuration
-
-Note: This step is necessary only for the frontend setup, and can be skipped if you plan to use only the backend API with the Taskwarrior Flutter App
-
-1.  Create a new project and then setup a Firestore database.
-
-2.  Add a collection of the name tasks
-
-3.  The following fields must be there in the data model of the collection:
-
-        description (string)
-        due (string)
-        email (string)
-        end (string)
-        entry (string)
-        id (number)
-        modified (string)
-        priority (string)
-        project (string)
-        status (string)
-        tags (array : string)
-        urgency (number)
-        uuid (string)
-
-4.  Add web support for you database and download the config file provided by Google, it would have this format:
-
-        import { initializeApp } from "firebase/app";
-        const firebaseConfig = {
-        apiKey: "",
-        authDomain: "",
-        projectId: "",
-        storageBucket: "",
-        messagingSenderId: "",
-        appId: "",
-        measurementId: ""
-        };
-        export const app = initializeApp(firebaseConfig);
-6.  Download it, and store it at `frontend/src/lib/` by the name `firebase.ts`
-    
-7. Make sure to update the Firestore rules to the given values, so as to become able to access them over the web frontend:
-
-        rules_version = '2';
-        service cloud.firestore {
-        match /databases/{database}/documents {
-        match /{document=**} {
-        allow read, write: if true;
-            }
-          }
-        }
-
-
