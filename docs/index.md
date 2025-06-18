@@ -14,6 +14,33 @@ The diagram below is a representation of how various components are connected to
 
 ---
 
+## Setting up CCSync for personal use
+
+---
+
+### Prerequisites
+
+- Docker
+
+- Google OAuth Keys
+
+### Steps to run CCSync for personal use
+
+1. Clone the CCSync repository and switch to docker-prod branch.
+2. Navigate to production directory by `cd production`
+3. Create a file named `.backend.env` with the following attributes:
+       
+        CLIENT_ID="client_ID" # Google Auth Secret from Prerequisites
+        CLIENT_SEC="client_SECRET" # Google Auth Secret from Prerequisites
+        REDIRECT_URL_DEV="http://localhost:8000/auth/callback" 
+        SESSION_KEY="generate a secret key using 'openssl rand -hex 32'"
+        FRONTEND_ORIGIN_DEV="http://localhost" # the url of the web frontend, so as to avoid CORS errors
+        CONTAINER_ORIGIN="http://YOUR_CONTAINER_NAME:8080/" # deployed taskchampion-sync-server container, should be production-syncserver-1 by default
+
+4. Run `docker-compose pull` to pull the CCSync images.
+5. Run `docker-compose up` to finally start the project.
+6. The frontend should now be available on localhost:80, backend on localhost:8000, and syncserver on localhost:8080
+
 ## Setting up a Development Environment
 
 ---
