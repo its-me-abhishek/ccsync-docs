@@ -110,7 +110,7 @@ The diagram below is a representation of how various components are connected to
         docker-compose build backend
         docker-compose up
 
-**Note:** If you plan to run the backend without Docker, run it as a `root` user preferably on `WSL` or any Linux Distro with a user that has elevated permissions to modify files and directories.
+**Note:** If you plan to run the backend without Docker, run it as a `root` user preferably on `WSL` or any Linux Distro with a user that has elevated permissions to modify files and directories. This is because the server requires permissions to update your taskrc based on the Logged in user.
 
 **Note:** The Taskchampion sync server is currently being pulled from the repository [here](https://github.com/GothenburgBitFactory/taskchampion-sync-server).
 
@@ -119,24 +119,10 @@ The diagram below is a representation of how various components are connected to
 1.  For development/personal purposes, in order to use CCSync with Taskwarrior Flutter app, one needs to setup only
     the backend and the sync server. The frontend setup is optional.
 
-2.  Open the `api_service.dart` file.
-
-3.  For baseUrl, replace `http://YOUR_IP:8000` with the deployed API endpoint. YOUR_IP refers to the IP address of the terminal or Docker container that is hosting the backend currently.
-
-4.  For origin, replace `http://localhost:8080` with the deployed sync server endpoint.
-
-5.  Set `sync.server.origin` in your Taskwarrior configuration to the deployed sync server URL.
-
-6.  Here's how your api_service.dart should look after these changes:
-
-        class ApiService {
-        // Use deployed values for baseUrl and origin
-                String baseUrl = 'http://deployed-api-endpoint.com'; // replace with actual deployed API endpoint
-                String origin = 'http://deployed-sync-server-endpoint.com'; // replace with actual deployed sync server endpoint, although, for now, it is just a placeholder until next release or update
-        // Other ApiService code...
-        }
-
-7.  Run the app.
+2.  Go to settings -> Turn on Taskchampion Sync
+3.  Click back, go to menu again, click on CCSync credentials, paste the credentials from the frontend as specified.
+4.  Click on Save.
+5.  Refresh the tasks, and now CCSync in synced with your Taskwarrior Flutter App.
 
 ### Troubleshooting
 
@@ -165,7 +151,7 @@ Here, `package_name` is the test suite you want to run.
 
 ## Google OAuth Keys
 
-Before starting the frontend, Go to [Google cloud credential page](https://console.cloud.google.com/apis/credentials) for generating client id and secret. Read [this guide for more information on these credentials and how these work](https://developers.google.com/identity/protocols/oauth2). Follow these steps:
+Before starting the frontend, Go to [Google cloud credential page](https://console.cloud.google.com/apis/credentials) for generating client id and secret. Read [this guide for more information on these credentials and how these work](https://developers.google.com/identity/protocols/oauth2). These Keys are only required to generate a consistent Client ID, and an Encryption Secret, for using Taskchampion, as it uses a hash and salt of your E-mail, and your UUID (as received via a login request). This can be skipped in case you have your own keys generated already. Follow these steps for getting these keys:
 
 1.  Go to Google's developer console.
 
