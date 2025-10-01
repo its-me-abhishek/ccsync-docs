@@ -25,7 +25,7 @@ The diagram below illustrates how various components are connected to enable syn
 
 ### Steps to Run CCSync for Personal Use
 
-1. Clone the CCSync repository and switch to the `docker-prod` branch.
+1. Clone the CCSync repository and switch to the `docker-prod` branch (stable) or `main` branch (latest).
 2. Navigate to the production directory using the command: `cd production`.
 3. Create a file named `.backend.env` with the following attributes:
 
