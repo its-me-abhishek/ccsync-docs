@@ -118,10 +118,14 @@ The diagram below illustrates how various components are connected to enable syn
 ### Steps to Set Up the Taskwarrior Flutter App with CCSync
 
 1. For development or personal use, you only need to set up the backend and the sync server. Setting up the frontend is optional.
-2. Go to **Settings** -> Turn on **Taskchampion Sync**.
-3. Navigate back to the menu, click on **CCSync Credentials**, and paste the credentials from the frontend as specified.
-4. Click **Save**.
-5. Refresh the tasks. CCSync should now be synced with your Taskwarrior Flutter App.
+2. Go to **Profile** , Create a new profile for which you want to set taskchampion or ccsync as sync server.
+3. Select the profile and **Change Sync Server** to **CCsync (v3)** or **Taskchampion (v3)**
+4. Click **Submit**.
+5. Now set the profile by clicking on `✓` icon 
+6. Select **Configure Taskserver** from **Profile Menu**
+7. Enter **Client ID**, **Encryption Secret** and **Backend URL** for CCsync backend for **CCsync (v3)** or Sync-Server for **Taskchampion (v3)**.
+8. Select **Save credentials** 
+9. Go back to the homepage and refresh to load tasks from Sync-Server
 
 ---
 
