@@ -159,20 +159,24 @@ Before starting the frontend, go to the [Google Cloud Credentials page](https://
 
 ### Steps to Generate Google OAuth Keys:
 
-1. Go to the Google Developer Console.
+1. Go to the [Google Developer Console](https://console.cloud.google.com/).
 2. Create a new project.
-3. Within your project, create a new "Client ID" by navigating to **APIs & Auth** > **Credentials** and clicking on **Create New Client ID**.
-4. Select **Web Application**.
-5. Enter the following for **Authorized JavaScript Origins**:
+3. Select your project from the projects dropdown on top bar.
+4. Go to **APIs & Services > [OAuth consent screen](https://console.cloud.google.com/auth)** and complete the configuration of this screen.
+5. Go to **APIs & Services > [Credentials](https://console.cloud.google.com/apis/credentials)**.
+6. Click **Create Credentials** at the top and select **OAuth Client ID**.
+7. Under **Application type**, select **Web application**.
+8. Enter the following for **Authorized JavaScript Origins**:
 
         http://127.0.0.1
         http://localhost
 
-6. Enter the following for **Authorized Redirect URI**:
+9. Enter the following for **Authorized Redirect URI**:
 
         http://127.0.0.1:8000/callback/
+        http://localhost:8000/auth/callback
 
-7. Save your changes.
-8. You will be presented with your newly generated credentials, which are required for setting up the backend.
+11. Save your changes.
+12. You will be presented with your newly generated credentials, which are required for setting up the backend.
 
 ---
