@@ -49,6 +49,8 @@ extra:
 #   - pymdownx.superfences
 #   - pymdownx.mark
 #   - attr_list
+extra_javascript:
+  - js/llm_utils.js
 
 markdown_extensions:
   - tables
